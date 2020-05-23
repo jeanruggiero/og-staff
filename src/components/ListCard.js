@@ -24,7 +24,6 @@ const useStyles = makeStyles({
 
 function ListCard(props) {
 
-  const [redirect, setRedirect] = useState(false);
   const [elevation, setElevation] = useState(0);
   const [boxShadow, setBoxShadow] = useState(0);
   const [style, setStyle] = useState({});
@@ -38,14 +37,6 @@ function ListCard(props) {
     setStyle({});
   };
 
-  const handleClick = (event) => {
-    setRedirect(true);
-  };
-
-  if (redirect) {
-    return <Redirect to={props.redirectRoot + "/" + props.uuid} />
-  }
-
   return (
     <Card className={classes.card}
           square
@@ -53,10 +44,8 @@ function ListCard(props) {
           key={props.uuid}
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
-          onClick={handleClick}
-
     >
-      <CardActionArea>
+      <CardActionArea component={Link} to={props.redirectRoot + "/" + props.uuid}>
         <Box px={2} py={1} display="flex" alignItems="center">
           <Box flexGrow={1} display="flex" alignItems="center">
             <Typography className={classes.name}
@@ -66,10 +55,10 @@ function ListCard(props) {
             </Typography>
 
             {props.processed && (
-              <Chip label="Processed"
+              <Chip label={props.tagText}
                     size="small"
                     style={{
-                      backgroundColor: "#019421",
+                      backgroundColor: props.tagColor,
                       color: "#ffffff",
                       marginLeft: 20
                     }}

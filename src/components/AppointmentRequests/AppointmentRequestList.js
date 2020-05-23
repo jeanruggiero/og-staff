@@ -44,6 +44,8 @@ function AppointmentRequestList(props) {
     return (
       <Box>
 
+        <Typography variant="h1" gutterBottom>Appointment Requests</Typography>
+
         {apptRequests.map((apptRequest, index) => (
           <ListCard uuid={apptRequest.uuid}
                     FirstNameRepr={apptRequest.FirstNameRepr}
@@ -51,6 +53,8 @@ function AppointmentRequestList(props) {
                     dateSubmitted={apptRequest.dateSubmitted}
                     processed={apptRequest.requestProcessed}
                     redirectRoot="/appointment-requests"
+                    tagText="Scheduled"
+                    tagColor="#66277a"
           />)
         )}
       </Box>

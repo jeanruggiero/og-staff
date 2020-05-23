@@ -47,7 +47,7 @@ function ProcessAppointmentRequest(props) {
                     onChange={handleChange}
           />
         }
-                        label="Mark as Processed"
+                        label="Mark as Scheduled"
       />
     </Box>
   )

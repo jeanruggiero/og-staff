@@ -43,7 +43,7 @@ function AppointmentRequestDetail({match}) {
     <Box mt={-3}>
       <Box>
         <Tooltip title="Back to Appointment Requests">
-          <IconButton component={Link} to="/appointment_requests">
+          <IconButton component={Link} to="/appointment-requests">
             <Icon>arrow_back</Icon>
           </IconButton>
         </Tooltip>
@@ -144,23 +144,28 @@ function AppointmentRequestDetail({match}) {
         </FormSection>
 
         <FormSection label="Respond">
-          <Field label="Respond By"
-                 value={apptRequest.contactMethod}
-                 width={100}
-          />
-
-          {apptRequest.contactMethod === "Email" ? (
-            <Button variant="contained"
-                    color="primary"
-                    startIcon={<Icon>email</Icon>}
-            >
-              Email Patient
-            </Button>
-          ) : (
-            <Field label="Phone Number"
-                   value={apptRequest.phoneNumber}
+          <Box display="flex" alignItems="center">
+            <Field label="Respond By"
+                   value={apptRequest.contactMethod}
+                   width={100}
             />
-          )}
+
+            {apptRequest.contactMethod === "Email" ? (
+              <Button variant="contained"
+                      color="primary"
+                      startIcon={<Icon>email</Icon>}
+                      component="a"
+                      href={"mailto:" + apptRequest.patient.Email}
+                      target="_blank"
+              >
+                Email Patient
+              </Button>
+            ) : (
+              <Field label="Phone Number"
+                     value={apptRequest.phoneNumber}
+              />
+            )}
+          </Box>
         </FormSection>
       </Box>
     </Box>

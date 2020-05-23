@@ -11,12 +11,8 @@ function FormPanel() {
 
   return (
     <Box>
-      <BrowserRouter>
-        <Switch>
           <Route path="/forms" exact component={FormList}/>
           <Route path="/forms/:id" component={FormDetail}/>
-        </Switch>
-      </BrowserRouter>
     </Box>
   )
 }

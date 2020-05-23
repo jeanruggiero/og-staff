@@ -47,6 +47,8 @@ function FormList(props) {
     return (
       <Box>
 
+        <Typography variant="h1" gutterBottom>Intake Forms</Typography>
+
         {forms.map((form, index) => (
           <ListCard uuid={form.uuid}
                     FirstNameRepr={form.FirstNameRepr}
@@ -54,6 +56,8 @@ function FormList(props) {
                     dateSubmitted={form.dateSubmitted}
                     processed={form.formProcessed}
                     redirectRoot="/forms"
+                    tagText="Processed"
+                    tagColor="#019421"
           />)
         )}
       </Box>
