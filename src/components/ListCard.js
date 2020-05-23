@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   }
 });
 
-function FormListCard(props) {
+function ListCard(props) {
 
   const [redirect, setRedirect] = useState(false);
   const [elevation, setElevation] = useState(0);
@@ -43,8 +43,8 @@ function FormListCard(props) {
   };
 
   if (redirect) {
-    return <Redirect to={"/forms/"+props.uuid} />
-  };
+    return <Redirect to={props.redirectRoot + "/" + props.uuid} />
+  }
 
   return (
     <Card className={classes.card}
@@ -65,11 +65,11 @@ function FormListCard(props) {
               {props.FirstNameRepr} {props.LastNameRepr}
             </Typography>
 
-            {props.formProcessed && (
+            {props.processed && (
               <Chip label="Processed"
                     size="small"
                     style={{
-                      backgroundColor: "#00bf29",
+                      backgroundColor: "#019421",
                       color: "#ffffff",
                       marginLeft: 20
                     }}
@@ -91,4 +91,4 @@ function FormListCard(props) {
   )
 }
 
-export default FormListCard;
+export default ListCard;

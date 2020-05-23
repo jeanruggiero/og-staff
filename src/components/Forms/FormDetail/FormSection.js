@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 function FormSection(props) {
 
   return (
-    <Box pb={2} position="relative">
+    <Box pb={2} mt={2} position="relative">
       <Box pl={2} position="absolute" zindex="speedDial" top={-10} mt={0} pt={0}>
         <Paper elevation={0} square>
           <Box px={0.5}>

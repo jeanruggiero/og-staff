@@ -12,9 +12,6 @@ import ListCard from "../ListCard";
 const axios = require('axios');
 
 const useStyles = makeStyles({
-  card: {
-
-  },
   name: {
     flexGrow: 0,
     fontWeight: 500,
@@ -25,35 +22,35 @@ const useStyles = makeStyles({
   }
 });
 
-function FormList(props) {
+function AppointmentRequestList(props) {
 
   const classes = useStyles();
-  const [forms, setForms] = useState();
+  const [apptRequests, setApptRequests] = useState();
   const [page, setPage] = useState(1);
   const [height, setHeight] = useState(1);
 
   useEffect(() => {
-    axios.get(API_URL + 'forms/', {
+    axios.get(API_URL + 'appointment_request_list/', {
       headers: {'Authorization': 'Token ' + localStorage.getItem('token')}
     })
       .then((response) => {
         console.log(response);
-        setForms(response.data);
+        setApptRequests(response.data);
         }
       );
   }, [page]);
 
-  if (forms) {
+  if (apptRequests) {
     return (
       <Box>
 
-        {forms.map((form, index) => (
-          <ListCard uuid={form.uuid}
-                    FirstNameRepr={form.FirstNameRepr}
-                    LastNameRepr={form.LastNameRepr}
-                    dateSubmitted={form.dateSubmitted}
-                    processed={form.formProcessed}
-                    redirectRoot="/forms"
+        {apptRequests.map((apptRequest, index) => (
+          <ListCard uuid={apptRequest.uuid}
+                    FirstNameRepr={apptRequest.FirstNameRepr}
+                    LastNameRepr={apptRequest.LastNameRepr}
+                    dateSubmitted={apptRequest.dateSubmitted}
+                    processed={apptRequest.requestProcessed}
+                    redirectRoot="/appointment-requests"
           />)
         )}
       </Box>
@@ -64,4 +61,4 @@ function FormList(props) {
 
 }
 
-export default FormList;
+export default AppointmentRequestList;
