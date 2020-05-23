@@ -6,6 +6,7 @@ import Box from "@material-ui/core/Box";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import {Link} from "react-router-dom";
 import Redirect from "react-router-dom/es/Redirect";
+import Chip from "@material-ui/core/Chip";
 
 const useStyles = makeStyles({
   card: {
@@ -57,12 +58,23 @@ function FormListCard(props) {
     >
       <CardActionArea>
         <Box px={2} py={1} display="flex" alignItems="center">
-          <Box flexGrow={1}>
+          <Box flexGrow={1} display="flex" alignItems="center">
             <Typography className={classes.name}
                         display="inline"
             >
               {props.FirstNameRepr} {props.LastNameRepr}
             </Typography>
+
+            {props.formProcessed && (
+              <Chip label="Processed"
+                    size="small"
+                    style={{
+                      backgroundColor: "#00bf29",
+                      color: "#ffffff",
+                      marginLeft: 20
+                    }}
+              />
+            )}
           </Box>
 
           <Box>

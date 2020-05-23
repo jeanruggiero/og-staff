@@ -15,6 +15,7 @@ import FamilyHistory from "./FormDetail/FamilyHistory";
 import SocialHistory from "./FormDetail/SocialHistory";
 import ContactLensHistory from "./FormDetail/ContactLensHistory";
 import {API_URL} from "../../constants";
+import ProcessForm from "./FormDetail/ProcessForm";
 
 
 function FormDetail({match}) {
@@ -31,9 +32,7 @@ function FormDetail({match}) {
           </IconButton>
         </Tooltip>
 
-        <Box display="inline-block" pl={1}>
-          <FormControlLabel control={<Checkbox/>} label="Mark as Processed"/>
-        </Box>
+        <ProcessForm id={id} />
       </Box>
 
       <Divider />

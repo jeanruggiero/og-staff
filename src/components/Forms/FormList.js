@@ -52,6 +52,7 @@ function FormList(props) {
                         FirstNameRepr={form.FirstNameRepr}
                         LastNameRepr={form.LastNameRepr}
                         dateSubmitted={form.dateSubmitted}
+                        formProcessed={form.formProcessed}
           />)
         )}
       </Box>

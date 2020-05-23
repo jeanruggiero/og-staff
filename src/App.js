@@ -12,7 +12,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Icon from "@material-ui/core/Icon";
 import ErrorPage from "./components/ErrorPage";
-import AppointmentRequests from "./components/AppointmentRequests";
+import AppointmentRequests from "./components/AppointmentRequests/AppointmentRequests";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import Login from "./components/Login";

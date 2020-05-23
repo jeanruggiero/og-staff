@@ -34,6 +34,7 @@ function Login(props) {
 
   return (
     <Box p={3}>
+      <Typography gutterBottom variant="h3">Optometric Group</Typography>
       <Typography gutterBottom variant="h5">Staff Login</Typography>
 
       <form>
