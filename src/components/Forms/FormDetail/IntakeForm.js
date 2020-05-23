@@ -19,7 +19,6 @@ function IntakeForm(props) {
       headers: {'Authorization': 'Token ' + localStorage.getItem('token')}
     })
       .then((response) => {
-        console.log(response);
         setForm(response.data);
         setLoaded(true);
       })
@@ -32,7 +31,7 @@ function IntakeForm(props) {
   }
 
   return (
-    <Box>
+    <Box mb={2}>
       <Typography variant="h2" gutterBottom>
         Welcome Form
       </Typography>
@@ -43,6 +42,7 @@ function IntakeForm(props) {
           <Field label="MI" value={form.patient.MI} width={30} />
           <Field label="Last Name" value={form.patient.LastNameRepr}/>
           <Field label="Preferred Name" value={form.preferredName} />
+          <Field label="Gender" value={form.gender} width={80} />
         </Box>
 
         <Box>
@@ -60,13 +60,13 @@ function IntakeForm(props) {
         </Box>
 
         <Box>
-          <Field label="Email Address" value={form.email} width={200} />
+          <Field label="Email Address" value={form.patient.Email} width={200} />
           <Field label="Spouse or Parent(s) Name" value={form.spouseParentName} width={180} />
         </Box>
 
         <Box>
           <Field label="Emergency Contact" value={form.emergencyContactName} />
-          <Field label="Emergency Phone" value={form.emergencyContactPhone} />
+          <Field label="Emergency Phone" value={form.emergencyPhone} />
           <Field label="Person Responsible for Account" value={form.personResponsible} width={200} />
         </Box>
 
@@ -103,6 +103,112 @@ function IntakeForm(props) {
           </Grid>
 
 
+        </Box>
+      </FormSection>
+
+      <FormSection>
+        <Field label="Race" value={form.race} />
+        <Field label="Ethnicity" value={form.ethnicity} />
+        <Field label="Preferred Language" value={form.preferredLanguage} />
+      </FormSection>
+
+      <FormSection>
+        <Field label="Referred By" value={form.referredBy} />
+      </FormSection>
+
+      <FormSection label="HIPAA Privacy Policy">
+        <Field label="Patient Recevied" value="Yes" />
+        <Field label="Date" value={form.dateSubmitted} width={100} />
+      </FormSection>
+
+      <FormSection label="Primary Insurance Information">
+        <Box>
+          <Field label="Insurance Company" value={form.insuranceCompany}/>
+          <Field label="Street Address" value={form.insuranceCompanyStreetAddress}/>
+          <Field label="City" value={form.insuranceCompanyCity}/>
+          <Field label="State" value={form.insuranceCompanyState} width={40} />
+          <Field label="Zip" value={form.insuranceCompanyZip} width={60} />
+        </Box>
+
+        <Box>
+          <Typography>Insured Individual's Information</Typography>
+          <Field label="Gender"
+                 value={form.primaryInsuredGender || form.gender}
+                 width={80}
+          />
+
+          <Field label="First Name"
+                 value={form.primaryInsuredFirstName || form.patient.FirstNameRepr}
+          />
+
+          <Field label="MI"
+                 value={form.primaryInsuredMi || form.patient.MI}
+                 width={30}
+          />
+
+          <Field label="Last Name"
+                 value={form.primaryInsuredLastName || form.patient.LastNameRepr} />
+        </Box>
+
+        <Box>
+          <Field label="Identification Number" value={form.InsuranceIdNumber} />
+          <Field label="Group Number" value={form.insuranceGroupNumber} />
+          <Field label="Date of Birth"
+                 value={form.primaryInsuredDOB || form.patient.DOB}
+                 width={100}
+          />
+        </Box>
+
+        <Box>
+          <Field label="Patient Relationship to Insured" value={form.relationshipToInsured} />
+        </Box>
+      </FormSection>
+
+      <FormSection label="Patient Status">
+        <Field label="Patient Marital Status" value={form.maritalStatus} />
+        <Field label="Employment Status" value={form.employmentStatus} />
+      </FormSection>
+
+      <FormSection label="Secondary Insurance Information">
+        <Box>
+          <Field label="Insurance Company" value={form.secondaryInsuranceCompany}/>
+          <Field label="Street Address" value={form.secondaryInsuranceCompanyStreetAddress}/>
+          <Field label="City" value={form.secondaryInsuranceCompanyCity}/>
+          <Field label="State" value={form.secondaryInsuranceCompanyZip} width={40} />
+          <Field label="Zip" value={form.secondaryInsuranceCompanyZip} width={60} />
+        </Box>
+
+        <Box>
+          <Typography>Insured Individual's Information</Typography>
+          <Field label="Gender"
+                 value={form.secondaryInsurance && (form.secondaryInsuredGender || form.gender)}
+                 width={80}
+          />
+
+          <Field label="First Name"
+                 value={form.secondaryInsurance && (form.secondaryInsuredFirstName || form.patient.FirstNameRepr)}
+          />
+
+          <Field label="MI"
+                 value={form.secondaryInsurance && (form.secondaryInsuredMi || form.patient.MI)}
+                 width={30}
+          />
+
+          <Field label="Last Name"
+                 value={form.secondaryInsurance && (form.secondaryInsuredLastName || form.patient.LastNameRepr)} />
+        </Box>
+
+        <Box>
+          <Field label="Identification Number" value={form.secondaryInsuranceIdNumber} />
+          <Field label="Group Number" value={form.secondaryInsuranceGroupNumber} />
+          <Field label="Date of Birth"
+                 value={form.secondaryInsurance && (form.secondaryInsuredDOB || form.patient.DOB)}
+                 width={100}
+          />
+        </Box>
+
+        <Box>
+          <Field label="Patient Relationship to Insured" value={form.secondaryRelationshipToInsured} />
         </Box>
       </FormSection>
     </Box>

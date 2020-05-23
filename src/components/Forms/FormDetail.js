@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import IntakeForm from "./FormDetail/IntakeForm";
 import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
@@ -8,10 +8,19 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Divider from "@material-ui/core/Divider";
 import {Link} from "react-router-dom";
+import Preliminaries from "./FormDetail/Preliminaries";
+import CurrentEyeSymptoms from "./FormDetail/CurrentEyeSymptoms";
+import ReviewOfSymptoms from "./FormDetail/ReviewOfSymptoms";
+import FamilyHistory from "./FormDetail/FamilyHistory";
+import SocialHistory from "./FormDetail/SocialHistory";
+import ContactLensHistory from "./FormDetail/ContactLensHistory";
+import {API_URL} from "../../constants";
+
 
 function FormDetail({match}) {
 
   const id = match.params.id;
+
 
   return (
     <Box mt={-3}>
@@ -30,7 +39,13 @@ function FormDetail({match}) {
       <Divider />
 
       <Box pt={1.5}>
-        <IntakeForm id={id}/>
+        <IntakeForm id={id} />
+        <Preliminaries id={id} />
+        <CurrentEyeSymptoms id={id} />
+        <ReviewOfSymptoms id={id} />
+        <FamilyHistory id={id} />
+        <SocialHistory id={id} />
+        <ContactLensHistory id={id} />
       </Box>
     </Box>
   )

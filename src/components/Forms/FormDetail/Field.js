@@ -4,14 +4,18 @@ import Box from "@material-ui/core/Box";
 
 function Field(props) {
 
-  const style = {width: 150};
+  let style = {width: 150};
+  let display = "inline-block";
 
   if (props.width) {
     style.width = props.width;
+  } if (props.fullWidth !== undefined) {
+    style = {};
+    display = "block";
   }
 
   return (
-    <Box pr={2} pb={1.5} display="inline-block">
+    <Box pr={2} pb={1.5} display={display}>
       <TextField helperText={props.label}
                  value={props.value}
                  InputProps={{
@@ -19,6 +23,8 @@ function Field(props) {
                  }}
                  disabled
                  style={style}
+                 fullWidth={props.fullWidth !== undefined}
+
       />
     </Box>
   )
