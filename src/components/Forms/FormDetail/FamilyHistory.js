@@ -67,7 +67,7 @@ function FamilyHistory(props) {
                     <TableCell>{item}</TableCell>
                     <TableCell>{form.familyMedicalHistory[item] ? "Yes" : ""}</TableCell>
 
-                    {((item === "Cataracts") || (item === "Glaucoma")) ? (
+                    {(((item === "Cataracts") || (item === "Glaucoma")) && form.familyMedicalHistory[item]) ? (
                       <TableCell>{"Age of Onset: " + form.familyMedicalHistory[item + "AgeOfOnset"] + "; Severity: " + form.familyMedicalHistory[item + "Severity"] + "; Details: " + form.familyMedicalHistory[item + "Details"]}</TableCell>
                     ) : (
                       <TableCell>{form.familyMedicalHistory[item + "Details"]}</TableCell>
