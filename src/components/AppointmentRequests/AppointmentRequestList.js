@@ -48,8 +48,8 @@ function AppointmentRequestList(props) {
 
         {apptRequests.map((apptRequest, index) => (
           <ListCard uuid={apptRequest.uuid}
-                    FirstNameRepr={apptRequest.FirstNameRepr}
-                    LastNameRepr={apptRequest.LastNameRepr}
+                    firstNameRepr={apptRequest.firstNameRepr}
+                    lastNameRepr={apptRequest.lastNameRepr}
                     dateSubmitted={apptRequest.dateSubmitted}
                     processed={apptRequest.requestProcessed}
                     redirectRoot="/appointment-requests"

@@ -57,29 +57,29 @@ function AppointmentRequestDetail({match}) {
         <FormSection label="Patient Information">
           <Field label="First Name"
                  name="firstName"
-                 value={apptRequest.patient.FirstNameRepr}
+                 value={apptRequest.patient.firstNameRepr}
           />
 
           <Field label="MI"
                  name="MI"
-                 value={apptRequest.patient.MI}
+                 value={apptRequest.patient.mi}
                  width={45}
           />
 
           <Field label="Last Name"
                  name="lastName"
-                 value={apptRequest.patient.LastNameRepr}
+                 value={apptRequest.patient.lastNameRepr}
           />
 
           <Field label="Date of Birth"
                  name="DOB"
-                 value={apptRequest.patient.DOB}
+                 value={apptRequest.patient.dob}
                  width={120}
           />
 
           <Field label="Email"
                  name="email"
-                 value={apptRequest.patient.Email}
+                 value={apptRequest.patient.email}
                  width={300}
           />
 
@@ -155,7 +155,7 @@ function AppointmentRequestDetail({match}) {
                       color="primary"
                       startIcon={<Icon>email</Icon>}
                       component="a"
-                      href={"mailto:" + apptRequest.patient.Email}
+                      href={"mailto:" + apptRequest.patient.email}
                       target="_blank"
               >
                 Email Patient

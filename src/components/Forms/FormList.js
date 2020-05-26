@@ -51,8 +51,8 @@ function FormList(props) {
 
         {forms.map((form, index) => (
           <ListCard uuid={form.uuid}
-                    FirstNameRepr={form.FirstNameRepr}
-                    LastNameRepr={form.LastNameRepr}
+                    firstNameRepr={form.firstNameRepr}
+                    lastNameRepr={form.lastNameRepr}
                     dateSubmitted={form.dateSubmitted}
                     processed={form.formProcessed}
                     redirectRoot="/forms"

@@ -51,7 +51,7 @@ function ListCard(props) {
             <Typography className={classes.name}
                         display="inline"
             >
-              {props.FirstNameRepr} {props.LastNameRepr}
+              {props.firstNameRepr} {props.lastNameRepr}
             </Typography>
 
             {props.processed && (

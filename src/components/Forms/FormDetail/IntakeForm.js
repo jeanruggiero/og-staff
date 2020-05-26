@@ -38,9 +38,9 @@ function IntakeForm(props) {
 
       <FormSection>
         <Box>
-          <Field label="First Name" value={form.patient.FirstNameRepr}/>
-          <Field label="MI" value={form.patient.MI} width={30} />
-          <Field label="Last Name" value={form.patient.LastNameRepr}/>
+          <Field label="First Name" value={form.patient.firstNameRepr}/>
+          <Field label="MI" value={form.patient.mi} width={30} />
+          <Field label="Last Name" value={form.patient.lastNameRepr}/>
           <Field label="Preferred Name" value={form.preferredName} />
           <Field label="Gender" value={form.gender} width={80} />
         </Box>
@@ -53,14 +53,14 @@ function IntakeForm(props) {
         </Box>
 
         <Box>
-          <Field label="Date of Birth" value={form.patient.DOB} width={90} />
+          <Field label="Date of Birth" value={form.patient.dob} width={90} />
           <Field label="Cell Phone" value={form.cellPhone} width={100} />
           <Field label="Home Phone" value={form.homePhone} width={100} />
           <Field label="Work Phone" value={form.workPhone} width={100} />
         </Box>
 
         <Box>
-          <Field label="Email Address" value={form.patient.Email} width={200} />
+          <Field label="Email Address" value={form.patient.email} width={200} />
           <Field label="Spouse or Parent(s) Name" value={form.spouseParentName} width={180} />
         </Box>
 
@@ -138,23 +138,23 @@ function IntakeForm(props) {
           />
 
           <Field label="First Name"
-                 value={form.primaryInsuredFirstName || form.patient.FirstNameRepr}
+                 value={form.primaryInsuredFirstName || form.patient.firstNameRepr}
           />
 
           <Field label="MI"
-                 value={form.primaryInsuredMi || form.patient.MI}
+                 value={form.primaryInsuredMi || form.patient.mi}
                  width={30}
           />
 
           <Field label="Last Name"
-                 value={form.primaryInsuredLastName || form.patient.LastNameRepr} />
+                 value={form.primaryInsuredLastName || form.patient.lastNameRepr} />
         </Box>
 
         <Box>
-          <Field label="Identification Number" value={form.InsuranceIdNumber} />
+          <Field label="Identification Number" value={form.insuranceIdNumber} />
           <Field label="Group Number" value={form.insuranceGroupNumber} />
           <Field label="Date of Birth"
-                 value={form.primaryInsuredDOB || form.patient.DOB}
+                 value={form.primaryInsuredDob || form.patient.dob}
                  width={100}
           />
         </Box>
@@ -186,23 +186,23 @@ function IntakeForm(props) {
           />
 
           <Field label="First Name"
-                 value={form.secondaryInsurance && (form.secondaryInsuredFirstName || form.patient.FirstNameRepr)}
+                 value={form.secondaryInsurance && (form.secondaryInsuredFirstName || form.patient.firstNameRepr)}
           />
 
           <Field label="MI"
-                 value={form.secondaryInsurance && (form.secondaryInsuredMi || form.patient.MI)}
+                 value={form.secondaryInsurance && (form.secondaryInsuredMi || form.patient.mi)}
                  width={30}
           />
 
           <Field label="Last Name"
-                 value={form.secondaryInsurance && (form.secondaryInsuredLastName || form.patient.LastNameRepr)} />
+                 value={form.secondaryInsurance && (form.secondaryInsuredLastName || form.patient.lastNameRepr)} />
         </Box>
 
         <Box>
           <Field label="Identification Number" value={form.secondaryInsuranceIdNumber} />
           <Field label="Group Number" value={form.secondaryInsuranceGroupNumber} />
           <Field label="Date of Birth"
-                 value={form.secondaryInsurance && (form.secondaryInsuredDOB || form.patient.DOB)}
+                 value={form.secondaryInsurance && (form.secondaryInsuredDob || form.patient.dob)}
                  width={100}
           />
         </Box>
