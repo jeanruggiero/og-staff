@@ -19,15 +19,17 @@ import Login from "./components/Login";
 import {API_URL} from "./constants";
 import Button from "@material-ui/core/Button";
 import ContentPanel from "./components/ContentPanel";
+import PasswordChange from "./components/PasswordChange";
 
 const axios = require('axios');
 
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [passwordChangeRequired, setPasswordChangeRequired] = useState(null);
   const hasToken = !!localStorage.getItem('token');
 
-  if (hasToken !== loggedIn) {
+  if ((hasToken !== loggedIn) && (passwordChangeRequired === false)) {
     setLoggedIn(hasToken);
   }
 
@@ -36,14 +38,36 @@ function App() {
       .then(response => {
         console.log(response);
         localStorage.setItem('token', response.data.token);
-        setLoggedIn(true);
-      })
+
+        axios.get(API_URL + "update_password/", {
+          headers: {'Authorization': 'Token ' + localStorage.getItem('token')}
+        })
+          .then(response => {
+            if (response.data.passwordChangeRequired) {
+              setPasswordChangeRequired(true);
+
+            } else {
+              setLoggedIn(true);
+            }
+
+          });
+      });
+  };
+
+  const handlePasswordChange = () => {
+    setPasswordChangeRequired(false);
   };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     setLoggedIn(false);
   };
+
+  if (passwordChangeRequired) {
+    return (
+      <PasswordChange handlePasswordChange={handlePasswordChange} />
+    )
+  }
 
   if (!loggedIn) {
     return (

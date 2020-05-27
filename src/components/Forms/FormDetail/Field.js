@@ -7,6 +7,18 @@ function Field(props) {
   let style = {width: 150};
   let display = "inline-block";
 
+  let value = props.value;
+  switch (value) {
+    case true:
+      value = "Yes";
+      break;
+    case false:
+      value = "No";
+      break;
+    default:
+      break;
+  }
+
   if (props.width) {
     style.width = props.width;
   } if (props.fullWidth !== undefined) {
@@ -17,7 +29,7 @@ function Field(props) {
   return (
     <Box pr={2} pb={1.5} display={display}>
       <TextField helperText={props.label}
-                 value={props.value}
+                 value={value}
                  InputProps={{
                    style: {color: "#000000"}
                  }}
