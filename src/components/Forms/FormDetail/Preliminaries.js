@@ -11,6 +11,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import Paper from "@material-ui/core/Paper";
+import AutoSizeField from "./AutoSizeField";
 
 const axios = require('axios');
 
@@ -20,7 +21,7 @@ function Preliminaries(props) {
   const [form, setForm] = useState();
 
   useEffect(() => {
-    axios.get(API_URL + "forms/" + props.id, {
+    axios.get(API_URL + "forms/" + props.id + "/", {
       headers: {'Authorization': 'Token ' + localStorage.getItem('token')}
     })
       .then((response) => {
@@ -42,7 +43,10 @@ function Preliminaries(props) {
       </Typography>
 
       <FormSection>
-        <Field label="Chief Complaint" value={form.reasonForAppointment} />
+        <AutoSizeField label="Chief Complaint"
+                       value={form.reasonForAppointment}
+                       fullWidth
+        />
         <Field label="Date of Last Health Exam" value={form.dateLastHealthExam} />
         <Field label="Date of Last Eye Exam" value={form.dateLastEyeExam} />
         <Field label="Date of Last Dilation" value={form.dateLastDilation} />

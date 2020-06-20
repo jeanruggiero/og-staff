@@ -13,7 +13,7 @@ function ProcessAppointmentRequest(props) {
 
   useEffect(() => {
     console.log('loading processed data');
-    axios.get(API_URL + "appointment_request_detail/" + props.id, {
+    axios.get(API_URL + "appointment_request_detail/" + props.id + "/", {
       headers: {'Authorization': 'Token ' + localStorage.getItem('token')}
     })
       .then((response) => {

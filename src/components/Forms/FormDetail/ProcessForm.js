@@ -13,7 +13,7 @@ function ProcessForm(props) {
 
   useEffect(() => {
     console.log('loading processed data');
-    axios.get(API_URL + "forms/" + props.id, {
+    axios.get(API_URL + "forms/" + props.id + "/", {
       headers: {'Authorization': 'Token ' + localStorage.getItem('token')}
     })
       .then((response) => {

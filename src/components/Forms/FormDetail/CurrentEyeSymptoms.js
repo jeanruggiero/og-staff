@@ -18,7 +18,7 @@ function CurrentEyeSymptoms(props) {
   const [form, setForm] = useState();
 
   useEffect(() => {
-    axios.get(API_URL + "forms/" + props.id, {
+    axios.get(API_URL + "forms/" + props.id + "/", {
       headers: {'Authorization': 'Token ' + localStorage.getItem('token')}
     })
       .then((response) => {

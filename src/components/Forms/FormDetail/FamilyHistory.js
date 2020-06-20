@@ -24,7 +24,7 @@ function FamilyHistory(props) {
     "High Blood Pressure", "Kidney Disease", "Lupus", "Stroke", "Thyroid Disease"];
 
   useEffect(() => {
-    axios.get(API_URL + "forms/" + props.id, {
+    axios.get(API_URL + "forms/" + props.id + "/", {
       headers: {'Authorization': 'Token ' + localStorage.getItem('token')}
     })
       .then((response) => {

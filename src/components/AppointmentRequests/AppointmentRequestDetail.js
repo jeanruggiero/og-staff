@@ -24,7 +24,7 @@ function AppointmentRequestDetail({match}) {
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
   useEffect(() => {
-    axios.get(API_URL + "appointment_request_detail/" + id, {
+    axios.get(API_URL + "appointment_request_detail/" + id + "/", {
       headers: {'Authorization': 'Token ' + localStorage.getItem('token')}
     })
       .then(response => {
