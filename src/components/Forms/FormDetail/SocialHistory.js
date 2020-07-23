@@ -62,16 +62,27 @@ function SocialHistory(props) {
           <Field label="Currently Wears Glasses" value={form.wearsGlasses} />
           <Field label="Since" value={form.glassesSince} width={100} />
           <Field label="Wearing Schedule" value={form.glassesFrequency} />
-          <Field label="Situations" value={form.glassesSituations} />
+          <Field label="Situations"
+                 value={form.glassesSituations}
+                 width={300}
+          />
         </Box>
 
         <Box>
-          <Field label="Glasses Owned" value={form.glassesTypes} />
+          <Field label="Glasses Owned"
+                 value={form.glassesTypes}
+                 fullWidth
+          />
         </Box>
 
         <Box>
-          <Field label="Had Trouble With Glasses in Past" value={form.troubleGlassesPast} />
-          <Field label="Details" value={form.troubleGlassesPastDetails} />
+          <Field label="Had Trouble With Glasses in Past"
+                 value={form.troubleGlassesPast}
+          />
+          <Field label="Details"
+                 value={form.troubleGlassesPastDetails}
+                 width={400}
+          />
         </Box>
 
         <Box>
@@ -80,15 +91,25 @@ function SocialHistory(props) {
         </Box>
 
         <Box>
-          <Field label="Special Eyewear Needs" value={form.specialEyewearNeeds} />
-          <Field label="Other Special EyewearNeeds" value={form.specialEyewearNeedsOther} />
+          <Field label="Special Eyewear Needs"
+                 value={form.specialEyewearNeeds}
+                 width={350}
+          />
+          <Field label="Other Special EyewearNeeds"
+                 value={form.specialEyewearNeedsOther}
+                 width={350}
+          />
         </Box>
       </FormSection>
 
       <FormSection label="Contact Lens Information">
         <Box>
           <Field label="Tried to Wear Contact Lenses" value={form.woreContactsPast} />
-          <Field label="Reason For Stopping" value={form.reasonStoppingContacts} />
+          <Field label="Reason For Stopping"
+                 value={form.reasonStoppingContacts}
+                 width={550}
+
+          />
         </Box>
 
         <Box>

@@ -8,6 +8,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import {API_URL} from "../../constants";
 import ListCard from "../ListCard";
+import FilterGroup from "./FilterGroup";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const axios = require('axios');
 
@@ -32,23 +34,37 @@ function FormList(props) {
   const [page, setPage] = useState(1);
   const [height, setHeight] = useState(1);
 
+  console.log(props.filter);
+
   useEffect(() => {
+
+    let queryParams = {};
+
+    if (props.filter.processed['processed'] ^ props.filter.processed['unprocessed']) {
+      queryParams.processed = props.filter.processed['processed']
+    }
+
+    if (props.filter.office['Westside Family Vision Center'] ^ props.filter.office['Saratoga Vision Center']) {
+      queryParams.office = props.filter.office['Westside Family Vision Center'] ? 'Westside Family Vision Center' : 'Saratoga Vision Center';
+    }
+
+    setForms(null);
+
     axios.get(API_URL + 'forms/', {
-      headers: {'Authorization': 'Token ' + localStorage.getItem('token')}
+      headers: {'Authorization': 'Token ' + localStorage.getItem('token')},
+      params: queryParams
     })
       .then((response) => {
         console.log(response);
         setForms(response.data);
         }
       );
-  }, [page]);
+  }, [page, props]);
+
 
   if (forms) {
     return (
       <Box>
-
-        <Typography variant="h1" gutterBottom>Intake Forms</Typography>
-
         {forms.map((form, index) => (
           <ListCard uuid={form.uuid}
                     firstNameRepr={form.firstNameRepr}
@@ -63,7 +79,11 @@ function FormList(props) {
       </Box>
     )
   } else {
-    return (<p>Loading...</p>)
+    return (
+      <Box display="flex" justifyContent="center" pt={5}>
+        <CircularProgress/>
+      </Box>
+      );
   }
 
 }

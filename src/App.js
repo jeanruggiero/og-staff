@@ -29,9 +29,11 @@ function App() {
   const [passwordChangeRequired, setPasswordChangeRequired] = useState(null);
   const hasToken = !!localStorage.getItem('token');
 
+
   if ((hasToken !== loggedIn) && (passwordChangeRequired === false)) {
     setLoggedIn(hasToken);
   }
+
 
   const handleLogin = (user) => {
     axios.post(API_URL + "token-auth/", user)
@@ -45,11 +47,9 @@ function App() {
           .then(response => {
             if (response.data.passwordChangeRequired) {
               setPasswordChangeRequired(true);
-
             } else {
               setLoggedIn(true);
             }
-
           });
       });
   };
@@ -69,7 +69,7 @@ function App() {
     )
   }
 
-  if (!loggedIn) {
+  if (!hasToken) {
     return (
       <Login handleLogin={handleLogin} />
     )
